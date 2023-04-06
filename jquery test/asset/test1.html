@@ -1,0 +1,120 @@
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+    <script>
+        $().ready(function(){
+            $("#myform").validate(
+                {
+                    rules:{
+                        username:   {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 20,
+                        pattern:/^[a-zA-z]+$/    
+                    },
+                    password: {
+                        required: true,
+                        pattern:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#])[a-zA-Z\d@#]{8,16}$/
+                    },
+                email: {
+                        required: true,
+                        pattern:/^[a-zA-z_\-\.]+[@]+[a-z]+[\.][a-z]{2,3}$/
+                    },
+                    mobno: {
+                        required: true,
+                        pattern: /^[\+]{1}[0-9]{2}-[0-9]{3}-[0-9]{3}-[0-9]{4}$/,
+                       
+                    }
+                },
+                messages:{
+                    username: {
+                        required: " Please enter a username",
+                       
+                        minlength: " Your username must consist of at least 5 characters",
+                        maxlength: " Your username must not  contain  more than  20 characters",
+                        pattern:"pattern format is wrong"
+                    },
+                    password: {
+                        required: " Please enter a password",
+                        
+                        pattern:"pattern format is wrong"
+                    },
+                    email: {
+                        required: "Please enter email-id",
+                        email: "Email-id format is wrong"
+                    },
+                    mobno: {
+                        required: "Please enter mobile number",
+                        pattern: "Phone number format is wrong",
+                        
+                    }
+                }
+            });
+        });
+        </script>
+         <style>
+            body {
+                padding-left: 500px;
+                padding-top: 50px;
+                padding-bottom: 60px;
+                padding-right: 500px;
+                background: #BE93C5;
+                /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #7BC6CC, #BE93C5);
+                /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #7BC6CC, #BE93C5);
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+            }
+    
+            form {
+                color: rgb(49, 5, 62);
+                font-size:125% ;
+                padding-left: 20px;
+                padding-right: 10px;
+                padding-top: 0px;
+    
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+            }
+    
+            h2{
+                text-align: center;
+                padding-left: 10px;
+            }
+        </style>
+</head>
+<body>
+    <form class="cmxform" id="myform" action="" method="get" >
+    <h2>SIGN IN FORM</h2>
+    <fieldset>
+        <p>
+            <label for="username">Username</label><br>
+            <input id="username" name="username" type="text"><br><br>
+        </p>
+        <p>
+            <label for="password">Password</label><br>
+            <input id="password" name="password" type="password"><br><br>
+        </p>
+        <p>
+            <label for="email">Email</label><br>
+            <input id="email" name="email" type="email"><br><br>
+        </p>
+
+        <p>
+            <label for="mobno">Mobile number</label><br>
+            <input id="mobno" name="mobno" type="text"><br><br>
+        </p>
+        <p>
+            <input class="submit" type="submit" value="submit"><br>
+        </p>
+        </fieldset>
+    </form>
+  
+</body>
+</html>
